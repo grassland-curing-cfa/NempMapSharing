@@ -11,6 +11,6 @@ var MG_KEY = process.env.MG_KEY;
 
 var CFA_NEMP_EMAIL = process.env.EMAIL_ADDR_CFA_NEMP;
 
-Parse.Cloud.define('hello', function(req, res) {
+Parse.Cloud.define('hello', function(request, response) {
   response.success("Hello world from " + APP_NAME);
 });
