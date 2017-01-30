@@ -15,7 +15,8 @@
     "parse-server": "*",
     "underscore": "~1.8.3",
     "mailgun-js": "^0.7.7",
-    "cors": "*"
+    "cors": "*",
+    "moment": "*"
   },
   "scripts": {
     "start": "node index.js"
