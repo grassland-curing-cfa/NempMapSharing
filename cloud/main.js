@@ -19,6 +19,9 @@ var MG_DOMAIN = process.env.MG_DOMAIN;
 var MG_KEY = process.env.MG_KEY;
 
 var CFA_NEMP_EMAIL = process.env.EMAIL_ADDR_CFA_NEMP;
+var DISTRIBUTION_EMAIL_GROUP = "a.chen@cfa.vic.gov.au";
+//var DISTRIBUTION_EMAIL_GROUP = process.env.DISTRIBUTION_EMAIL_GROUP;
+var DISTRIBUTION_EMAIL_TABLE_HTML = process.env.DISTRIBUTION_EMAIL_TABLE_HTML;
 
 Parse.Cloud.define('hello', function(request, response) {
   response.success("Hello world from " + APP_NAME);
@@ -84,20 +87,25 @@ Parse.Cloud.define("sendMapSharingEmailToUsers", function(request, response) {
 					'</head>' + 
 					'<body>' + 
 					//'<p>Hello %recipient%,</p>' + 
-					'<p>Hello All,</p>' + 
+					'<p>Hi All,</p>' + 
 					'<br>' + 
-					'<p>The MapSharing map has been updated ' + strToday + '. To view the report, please click the link <a href="' + uploadedUrl + '" target="_top">here</a>.</p>' + 
+					'<p>For your information, please click the link <a href="' + uploadedUrl + '" target="_top">here</a> to find attached a mosaic of this week’s VISCA grassland curing data covering multiple jurisdictions.</p>' + 
 					'<br>' + 
-					'<p>Please note: If the report does not display properly in your web browser, please save it to your desktop and view directly using Acrobat Reader.</p>' + 
+					'<p>Information of the curing data (for each jurisdiction) is provided below:</p>' + 
 					'<br>' + 
-					'<p>Kind Regards,</p>' + 
+					DISTRIBUTION_EMAIL_TABLE_HTML + 
+					'<br>' + 
+					'<p>Take note, this email will continue on a weekly basis. If you would prefer to be removed from the email list, please let us know.</p>' + 
+					'<br>' + 
+					'<p>Thank you again for your support with the NEMP Grassland Curing Trial.</p>' + 
+					'<br>' + 
+					'<p>Regards,</p>' + 
 					'<p>The NEMP Grassland Curing Team</p>' + 
 					'<br>' + 
 					'<table><tr><td width="25%"><img src="http://www.cfa.vic.gov.au/img/logo.png" width="64" height="64" alt="CFA_LOGO" /></td>' + 
 					'<td><p style="color:#C00000; font-weight: bold;">NEMP Grassland Curing Team</p><p>CFA HQ - Fire & Emergency Management</p><p>8 Lakeside Drive, Burwood East, Victoria 3151</p>' + 
 					'<p>E: <a href="mailto:' + CFA_NEMP_EMAIL + '" target="_top">' + CFA_NEMP_EMAIL + '</a></p></td></tr></table>' + 
 					'<br>' + 
-					'<p><i>Note: This email has been automatically generated. Please do not reply to this email.</i></p>' + 
 					'</body>' + 
 					'</html>';
 		
@@ -105,8 +113,7 @@ Parse.Cloud.define("sendMapSharingEmailToUsers", function(request, response) {
 		
 		//
 		var data = {
-			to: "a.chen@cfa.vic.gov.au",
-			//cc: CFA_NEMP_EMAIL,
+			to: DISTRIBUTION_EMAIL_GROUP,
 			from: CFA_NEMP_EMAIL,
 			subject: "Grassland Curing Map Sharing - " + strToday,
 			text: "",
