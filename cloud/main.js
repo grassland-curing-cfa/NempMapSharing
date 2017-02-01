@@ -71,7 +71,7 @@ Parse.Cloud.define("sendMapSharingEmailToUsers", function(request, response) {
 	queryAppSettings.first().then(function(appSettings) {
 		distribution_email_list = appSettings.get("DISTRIBUTION_EMAIL_GROUP");
 		distribution_email_tbl_html = appSettings.get("DISTRIBUTION_EMAIL_TABLE_HTML");
-
+		console.log("Found DISTRIBUTION_EMAIL_GROUP:" + distribution_email_list);
 
 		var queryMapSharingClass = new Parse.Query("MAPSHARING_MAP");
 		queryMapSharingClass.descending("createdAt");
