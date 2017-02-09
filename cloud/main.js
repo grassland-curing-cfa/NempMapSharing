@@ -102,7 +102,9 @@ Parse.Cloud.define("sendMapSharingEmailToUsers", function(request, response) {
 						//'<p>Hello %recipient%,</p>' + 
 						'<p>Hi All,</p>' + 
 						'<br>' + 
-						'<p>For your information, please click the link <a href="' + uploadedUrl + '" target="_top">here</a> to find attached a mosaic of this week’s VISCA grassland curing data covering multiple jurisdictions.</p>' + 
+						'<p>For your information, please click the link <a href="' + uploadedUrl + '" target="_top">here</a> to view attached a mosaic of this week’s VISCA grassland curing data covering multiple jurisdictions.</p>' + 
+						'<br>' + 
+						'<p>If you want to save the map to your computer, you can right-click on the map and then click "Save Image As..."</p>' + 
 						'<br>' + 
 						'<p>Information of the curing data (for each jurisdiction) is provided below:</p>' + 
 						'<br>' + 
